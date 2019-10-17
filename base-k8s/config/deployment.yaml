@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: base-k8s
+  namespace: base-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: base-k8s
+  template:
+    metadata:
+      labels:
+        app: base-k8s
+    spec:
+      containers:
+        - name: base-k8s
+          image: base-k8s:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
