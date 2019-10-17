@@ -8,7 +8,7 @@ Anyone! I was hunting for a set of deliberately broken k8s setups to use to teac
 
 ## Answers
 
-There will be an answers file that explains what is wrong with each environment. Don't read it until you've worked toward solving the problem!
+There is an answers file that explains what is wrong with each environment. Don't read it until you've worked toward solving the problem!
 
 ## Contributing
 
