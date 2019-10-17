@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broken1
+  namespace: broken1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: broken1
+  template:
+    metadata:
+      labels:
+        app: broken1
+    spec:
+      containers:
+        - name: broken1
+          image: broken1:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
