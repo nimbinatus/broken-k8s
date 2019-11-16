@@ -1,4 +1,4 @@
-# STOP
+# STOP 
 # Only read this file AFTER you've tried solving the environments!
 
 The whole point is to try to solve it yourself first :)
