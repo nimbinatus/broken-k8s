@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broken2
+  namespace: broken2
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: broken2
+  template:
+    metadata:
+      labels:
+        app: broken2
+    spec:
+      containers:
+        - name: broken2
+          image: nginx:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
