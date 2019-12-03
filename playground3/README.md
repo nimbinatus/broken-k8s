@@ -23,4 +23,4 @@ Check that everything is "running".
 $ kubectl get all -n broken3
 ```
 
-Wait a bit and check again, the pods keep restarting, can you figure out why?
+Wait a bit and check again. The pods keep restarting; can you figure out why?
