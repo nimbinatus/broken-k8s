@@ -14,3 +14,7 @@ There are two problems here. First the deployment specified 0 replicas which mea
 ## playground3
 
 There is a liveness check defined with a bad URL. Use a URL that nginx will respond on.
+
+## playground4
+
+You are missing a secret that the deployment is referencing. Try creating it with `kubectl create secret ...`

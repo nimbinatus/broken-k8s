@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broken4
+  namespace: broken4
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: broken4
+  template:
+    metadata:
+      labels:
+        app: broken4
+    spec:
+      containers:
+        - name: broken4
+          image: nginx:latest
+          imagePullPolicy: Always
+          env:
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-password
+                key: password
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          ports:
+            - containerPort: 80
