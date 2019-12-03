@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broken3
+  namespace: broken3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: broken3
+  template:
+    metadata:
+      labels:
+        app: broken3
+    spec:
+      containers:
+        - name: broken3
+          image: nginx:latest
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          ports:
+            - containerPort: 80
